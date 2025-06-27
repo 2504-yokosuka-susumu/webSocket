@@ -13,8 +13,8 @@ public class ChatController {
 	@SendTo("/topic/public")
 	public ChatMessage chat(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor heander) {
 
-		if (chatMessage.GetType() == MessageType.JOIN) {
-			heander.getSessionAttributes().put("user", chatMessage.GetSender());
+		if (chatMessage.getType() == MessageType.JOIN) {
+			heander.getSessionAttributes().put("user", chatMessage.getSender());
 		}
 
 		return chatMessage;

@@ -6,12 +6,18 @@ public class ChatMessage {
 	private String content;
 	private User sender;
 
+	public ChatMessage() {
 
-	public ChatMessage(MessageType leave, Object object, User user) {
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
-	public MessageType GetType() {
+	public ChatMessage(MessageType type, String content, User sender) {
+		// TODO 自動生成されたコンストラクター・スタブ
+		this.type = type;
+		this.content = content;
+		this.sender = sender;
+	}
+
+	public MessageType getType() {
 		return type;
 	}
 
@@ -19,19 +25,20 @@ public class ChatMessage {
 		this.type = type;
 	}
 
+	public String getContent() {
+		return content;
+	}
+
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public User getSender() {
+		return sender;
 	}
 
 	public void setSender(User sender) {
 		this.sender = sender;
 	}
 
-	public String GetContent() {
-		return content;
-	}
-
-	public User GetSender() {
-		return sender;
-	}
 }
