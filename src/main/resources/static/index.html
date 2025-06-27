@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<title>Real Time Chat</title>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.css" />
+
+</head>
+
+<body>
+	<!-- ユーザー名の入力フォーム -->
+	<div class="modal fade" id="userFormModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="userFormLabel">チャットに参加する</h1>
+				</div>
+				<div class="modal-body">
+					<form id="userForm">
+						<div class="mb-3">
+							<label for="userName" class="col-form-label">ユーザー名：</label>
+							<input type="text" class="form-control" id="userName"
+								pattern="[ぁ-んァ-ヶｦ-ﾟ一-龠０-９a-zA-ZＡ-Ｚａ-ｚ0-9\-\s\\-\\ー]+">
+						</div>
+				</div>
+				<div class=" modal-footer">
+					<button type="submit" id="sendButton" class="btn btn-primary">参加</button>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- チャット画面 -->
+	<div class="modal fade" id="chatModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-fullscreen">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="staticBackdropLabel">Chat Room</h1>
+					<button id="chatExitButton" type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div id="messageArea" class="modal-body">
+					<div id="messageCard" class="container-fluid">
+					</div>
+				</div>
+				<form class="form-inline" id="chatForm">
+					<div class="modal-footer">
+						<input type="text" class="form-control inline" id="messageContent" placeholder="メッセージを入力..."
+							style="width: 70%;" autofocus>
+						<button id="messageSendButton" type="submit" class="btn btn-outline-secondary inline">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+								class="bi bi-send" viewBox="0 0 16 16">
+								<path
+									d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+							</svg>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+	<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/js/main.js"></script>
+</body>
+
+</html>
